@@ -1,0 +1,273 @@
+<?php
+/**
+ * @file
+ * Code for the Survey feature.
+ */
+
+include_once 'survey.features.inc';
+
+function survey_form_alter(&$form, &$form_state, $form_id) {
+  
+  if ($form_id == 'big_test_node_form') {
+    $arrayed = array(
+      array( 
+        "name" => "field_field_text_test_one",
+        "parent" => array(
+          "field_list_test_test" => "Field Test One",
+        ),
+      ),
+      array( 
+        "name" => "field_field_text_test_two",
+        "parent" => array(
+          "field_list_test_test" => "Field Test Two",
+        ),
+      ),
+      array( 
+        "name" => "field_field_text_test_three",
+        "parent" => array(
+          "field_list_test_test" => "Field Test Three",
+        ),
+      ),
+    );
+    foreach($arrayed as &$fixed){
+      $name = $fixed["name"];
+      $form[$name]['#states'] = array(
+        'visible' => array(),
+      );     
+      foreach($fixed["parent"] as $key => $value){
+        $form[$name]['#states']['visible'][":input[name='{$key}[und]']"] = array('value' => $value);
+      };
+    };
+    dsm($form);
+  };
+
+  if ($form_id == 'test_form_node_form') {
+    $unsets = array(
+      "field_survey_pm_status",
+      "field_survey_scs_booth",
+      "field_survey_scs_presentation",
+      "field_survey_scs_poster",
+      "field_survey_scs_kol",
+      "field_survey_kol_mode",
+      "field_survey_kol_topic",
+      "field_survey_kol_resource",
+      "field_survey_kol_support",
+      "field_survey_kol_mode_again",
+      "field_survey_kol_type",
+    );
+    $arrayed = array(
+      //PM
+      array(
+        "name" => "field_survey_pm_activities",
+        "parent" => array(
+          "field_survey_category" => "Project Management",
+        ),
+      ),
+      array(
+        "name" => "field_survey_pm_name",
+        "parent" => array(
+          "field_survey_category" => "Project Management",
+          "field_survey_pm_activities" => "New Slide Deck Development",
+        ),
+      ),
+      array(
+        "name" => "field_survey_pm_marketing_tool",
+        "parent" => array(
+          "field_survey_category" => "Project Management",
+          "field_survey_pm_activities" => "Marketing/Commercial Tool Development",
+        ),
+      ),
+      array(
+        "name" => "field_survey_pm_describe",
+        "parent" => array(
+          "field_survey_category" => "Project Management",
+          "field_survey_pm_activities" => "Other Project",
+        ),
+      ),
+      array(
+        "name" => "field_survey_pm_clinical_tool",
+        "parent" => array(
+          "field_survey_category" => "Project Management",
+          "field_survey_pm_activities" => "Clinical Tool/Resource Development",
+        ),
+      ),
+      array(
+        "name" => "field_survey_pm_status",
+        "parent" => array(
+          "field_survey_category" => "Project Management",
+        ),
+      ),
+      //SCS
+      array(
+        "name" => "field_survey_scs_name",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+        ),
+      ),
+      array(
+        "name" => "field_survey_scs_days",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+        ),
+      ),
+      array(
+        "name" => "field_survey_scs_booth",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+        ),
+      ),
+      array(
+        "name" => "field_survey_scs_presentation",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+        ),
+      ),
+      array(
+        "name" => "field_survey_scs_presname",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+          "field_survey_scs_presentation" => "Yes",
+        ),
+      ),
+      array(
+        "name" => "field_survey_scs_attendees",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+          "field_survey_scs_presentation" => "Yes",
+        ),
+      ),
+      array(
+        "name" => "field_survey_scs_poster",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+        ),
+      ),
+      array(
+        "name" => "field_survey_scs_prestitle",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+          "field_survey_scs_poster" => "Yes",
+        ),
+      ),
+      array(
+        "name" => "field_survey_scs_kol",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+        ),
+      ),
+      
+      //KOL/HCP
+      array(
+        "name" => "field_survey_kol_activities",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_hcp_name",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Scientific Discussion",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_mode",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Scientific Discussion",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_topic",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Scientific Discussion",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_resource",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Scientific Discussion",
+        ),
+      ),
+      
+      array(
+        "name" => "field_survey_kol_support",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Research Collaboration",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_hcp_name_again",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Research Collaboration",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_mode_again",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Research Collaboration",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_type",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Research Collaboration",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_topics",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Research Collaboration",
+        ),
+      ),
+      
+      array(
+        "name" => "field_survey_kol_practice_name",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Educational Programs",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_presentation",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Educational Programs",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_mode_agains",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Educational Programs",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_attendees",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Educational Programs",
+        ),
+      ),
+    );
+    foreach($unsets as &$name){
+      unset($form[$name]['und']['#options']['_none']);
+    };
+    foreach($arrayed as &$fixed){
+      $name = $fixed["name"];
+      $form[$name]['#states'] = array(
+        'visible' => array(),
+      );     
+      foreach($fixed["parent"] as $key => $value){
+        $form[$name]['#states']['visible'][":input[name='{$key}[und]']"] = array('value' => $value);
+      };
+    };
+  }
+}

@@ -1,0 +1,754 @@
+<?php
+
+// function twominutes_menu() {
+  
+  // $items['helloworld'] = array(
+    // 'title' => 'Hello World',
+    // 'description' => '',
+    // 'page callback' => 'twominutes_helloworld',
+    // 'access arguments' => array(),
+    // 'access callback' => TRUE,
+  // );
+  
+  // $items['testform'] = array(
+    // 'title' => 'Form API Example',
+    // 'description' => 'Example of the use of Form API',
+    // 'page callback' => 'drupal_get_form',
+    // 'page arguments' => array('twominutes_testform'),
+    // 'access callback' => TRUE,
+  // );
+
+  // $items['testform2'] = array(
+    // 'title' => 'Form API Example',
+    // 'description' => 'Example of the use of Form API',
+    // 'page callback' => 'drupal_get_form',
+    // 'page arguments' => array('twominutes_testform3'),
+    // 'access callback' => TRUE,
+  // );
+  
+  // return $items;
+// }
+
+// function twominutes_helloworld()
+// {
+  // return 'Hello World !!! Please make it work';
+// }
+
+// function twominutes_testform($form, &$form_state){
+  // $form['fields'] = array(
+    // '#type' => 'textfield',
+    // '#title' => t('Put anything in the box!'),
+    // // '#required' => TRUE,
+    // '#description' => t('Write more stuff!'),
+  // );
+  // $form['submit'] = array(
+    // '#type' => 'submit',
+    // '#value' => 'Submit',
+  // );
+  // return $form;
+// }
+
+// function twominutes_testform2($form, &$form_state){
+  // $form['dates'] = array(
+    // '#type' => 'date',
+    // '#title' => t('Put anything in the box!'),
+    // // '#required' => TRUE,
+    // '#description' => t('Write more stuff!'),
+    // '#default_value' => variable_get("twominutes_fields"),
+  // );
+  // $form['fields'] = array(
+    // '#type' => 'textfield',
+    // '#title' => t('Put anything in the box!'),
+    // // '#required' => TRUE,
+    // '#description' => t('Write more stuff!'),
+    // '#default_value' => variable_get("twominutes_fields"),
+  // );
+  // $form['apps'] = array(
+    // '#type' => 'radios',
+    // //'#options' => array('yes' => t('Yes'), 'no' => t('No')),
+    // '#options' => array('yes' => t('Yes'), 'no' => t('No')),
+    // '#title' => t('Computers??'),   
+  // );
+  // $form['computers'] = array(
+    // '#type' => 'fieldset',
+    // //'#title' => 'Computers',
+    // '#collapsible' => FALSE,
+    // '#collapsed' => FALSE,
+    // '#states' => array(
+      // 'visible' => array(
+        // ':input[name="apps"]' => array('value' => 'yes'),
+      // ),
+    // ),
+  // );
+  // $form['computers']['texty'] = array(
+    // '#type' => 'textfield',
+    // '#title' => t('Thickness'),
+    // '#field_prefix' => t('Approx. '),
+    // '#field_suffix' => t(' inches'),
+    // '#maxlength' => 4,
+    // '#size' => 2,
+  // );
+  // $form['computers']['oops'] = array(
+    // '#type' => 'select',
+    // '#options' => array(
+      // '1' => t('One'), 
+      // '2' => t('Two'),
+      // '3' => t('Three'),
+     // ),
+    // '#title' => t('How much?'),   
+  // );
+  // $form['submit'] = array(
+    // '#type' => 'submit',
+    // '#value' => 'Submit',
+  // );
+  // return $form;
+// }
+
+// function twominutes_testform3($form, &$form_state){
+  // $form['category'] = array(
+    // '#type' => 'select',
+    // '#title' => 'Category',
+    // '#empty_option' => t(' '),
+    // '#options' => array(
+      // 'projman' => t('Project Management'), 
+      // 'scicon' => t('Scientific Congress Support'),
+      // 'kolhcp' => t('KOL/HCP Support and Education'),
+      // 'managed' => t('Managed Care'),
+      // 'intsup' => t('Internal Support'),
+      // 'admindut' => t('Administrative Duties'),
+      // 'persdev' => t('Personal Development'),
+     // ),
+  // );
+  // $form['projman'] = array(
+    // '#type' => 'fieldset',
+    // //'#title' => 'Project Management',
+    // '#collapsible' => TRUE,
+    // '#collapsed' => FALSE,
+    // '#states' => array(
+      // 'visible' => array(
+        // ':input[name="category"]' => array('value' => 'projman'),
+      // ),
+    // ),
+  // );
+
+  // $form['projman']['projmanactivities'] = array(
+    // '#type' => 'select',
+    // '#title' => 'Activities',
+    // '#empty_option' => t(' '),
+    // '#options' => array(
+      // 'projman_newslide' => t('New Slide Deck Development'), 
+      // 'projman_markdev' => t('Marketing/Commercial Tool Development'),
+      // 'projman_otherp' => t('Other Project'),
+      // 'projman_clintool' => t('Clinical Tool/Resource Development'),
+     // ),
+  // );
+  
+  // $form['projman']['newslidedeck'] = array(
+    // '#type' => 'fieldset',
+    // //'#title' => 'New Slide Deck Development',
+    // '#collapsible' => TRUE,
+    // '#collapsed' => FALSE,
+    // '#states' => array(
+      // 'visible' => array(
+        // ':input[name="projmanactivities"]' => array('value' => 'projman_newslide'),
+      // ),
+    // ),
+  // );
+  // $form['projman']['newslidedeck']['presentname'] = array(
+    // '#type' => 'textfield',
+    // '#title' => t('Name of Presentation'),
+  // );
+  
+  // $form['projman']['newslidedeck']['newslidestatus'] = array(
+    // '#type' => 'radios',
+    // '#title' => 'Status',
+    // '#options' => array(
+      // 'initiated' => t('Initiated'), 
+      // 'completed' => t('Completed'),
+     // ),
+  // );
+  
+  // $form['projman']['markdev'] = array(
+    // '#type' => 'fieldset',
+    // //'#title' => 'New Slide Deck Development',
+    // '#collapsible' => TRUE,
+    // '#collapsed' => FALSE,
+    // '#states' => array(
+      // 'visible' => array(
+        // ':input[name="projmanactivities"]' => array('value' => 'projman_markdev'),
+      // ),
+    // ),
+  // );
+  // $form['projman']['markdev']['toolresource'] = array(
+    // '#type' => 'textfield',
+    // '#title' => t('Name of Tool/Resrouce'),
+  // );
+  // $form['projman']['markdev']['markdevstatus'] = array(
+    // '#type' => 'radios',
+    // '#title' => 'Status',
+    // '#options' => array(
+      // 'initiated' => t('Initiated'), 
+      // 'completed' => t('Completed'),
+     // ),
+  // );
+  
+  // $form['projman']['otherp'] = array(
+    // '#type' => 'fieldset',
+    // //'#title' => 'New Slide Deck Development',
+    // '#collapsible' => TRUE,
+    // '#collapsed' => FALSE,
+    // '#states' => array(
+      // 'visible' => array(
+        // ':input[name="projmanactivities"]' => array('value' => 'projman_otherp'),
+      // ),
+    // ),
+  // );
+  // $form['projman']['otherp']['otherpdescribe'] = array(
+    // '#type' => 'textfield',
+    // '#title' => t('Describe'),
+  // );
+  // $form['projman']['otherp']['otherpstatus'] = array(
+    // '#type' => 'radios',
+    // '#title' => 'Status',
+    // '#options' => array(
+      // 'initiated' => t('Initiated'), 
+      // 'completed' => t('Completed'),
+     // ),
+  // );
+
+  // $form['projman']['clintool'] = array(
+    // '#type' => 'fieldset',
+    // //'#title' => 'New Slide Deck Development',
+    // '#collapsible' => TRUE,
+    // '#collapsed' => FALSE,
+    // '#states' => array(
+      // 'visible' => array(
+        // ':input[name="projmanactivities"]' => array('value' => 'projman_otherp'),
+      // ),
+    // ),
+  // );
+  // $form['projman']['clintool']['otherpdescribe'] = array(
+    // '#type' => 'textfield',
+    // '#title' => t('Describe'),
+  // );
+  // $form['projman']['clintool']['otherpstatus'] = array(
+    // '#type' => 'radios',
+    // '#title' => 'Status',
+    // '#options' => array(
+      // 'initiated' => t('Initiated'), 
+      // 'completed' => t('Completed'),
+     // ),
+  // );
+  
+  // $form['submit'] = array(
+    // '#type' => 'submit',
+    // '#value' => 'Submit',
+  // );
+  // return $form;
+// }
+
+// function twominutes_testform2_submit($form, &$form_state){
+  // drupal_set_message(t("You said @fields, and computer? @yesno", array('@fields' => $form_state['values']['fields'], '@yesno' => $form_state['values']['apps'])));
+  // kpr($form_state['values']);
+  // variable_set("twominutes_fields", $form_state['values']['fields']);
+// }
+
+// function twominutes_isAssoc($arr){
+  // dsm($arr);
+	// return array_keys($arr) !== range(0, count($arr) - 1);
+// }
+
+// function twominutes_form_statechange($arrayed, $form, $fieldname = None)  {
+  // dsm($fieldname);
+  // if (gettype($arrayed) !== "string" and twominutes_isAssoc($arrayed)){
+    // foreach($arrayed as $key => $value) {
+      // foreach($value as $moo){
+        // dsm($fieldname);
+        // $newfield = $fieldname;
+        // dsm($newfield);
+        // array_push($newfield, $value);
+        // twominutes_form_statechange($moo, $form, $newfield);
+      // };
+    // };
+  // }
+  // else{
+    // //foreach($arrayed as $value){
+      // foreach($fieldname as $pow){
+        // $form[$arrayed]['#states'] = array(
+          // 'visible' => array(
+            // ":input[name=field_list_test_test[und]]" => array('value' => $pow[0]),
+          // ),
+        // );
+        // // array_push($form[$value]['#states']['visible'], ":input[name={$pow}[und]]");
+        // dsm($form);
+      // };
+    // //};
+  // };
+// }
+
+function twominutes_form_alter(&$form, &$form_state, $form_id) {
+  // dsm($form_id);
+  
+  // if ($form_id == 'article_node_form') {
+    // dsm($form);
+  // };
+  
+  if ($form_id == 'big_test_node_form') {
+    // $arrayed = array(
+      // "field_list_test_test" => array(
+        // "Field Test One" => array(
+          // 'field_field_text_test_one',
+        // ),
+        // "Field Test Two" => array(
+          // 'field_field_text_test_two',
+        // ),
+        // "Field Test Three" => array (
+          // 'field_field_text_test_three',
+        // ),
+      // ),
+    // );
+    // dsm($arrayed["field_list_test_test"]);
+    // twominutes_form_statechange($arrayed["field_list_test_test"], $form, array("field_field_list_test_test"));
+    $arrayed = array(
+      array( 
+        "name" => "field_field_text_test_one",
+        "parent" => array(
+          "field_list_test_test" => "Field Test One",
+        ),
+      ),
+      array( 
+        "name" => "field_field_text_test_two",
+        "parent" => array(
+          "field_list_test_test" => "Field Test Two",
+        ),
+      ),
+      array( 
+        "name" => "field_field_text_test_three",
+        "parent" => array(
+          "field_list_test_test" => "Field Test Three",
+        ),
+      ),
+    );
+    foreach($arrayed as &$fixed){
+      $name = $fixed["name"];
+      $form[$name]['#states'] = array(
+        'visible' => array(),
+      );     
+      foreach($fixed["parent"] as $key => $value){
+        $form[$name]['#states']['visible'][":input[name='{$key}[und]']"] = array('value' => $value);
+      };
+    };
+    dsm($form);
+  };
+
+  if ($form_id == 'test_form_node_form') {
+    $unsets = array(
+      "field_survey_pm_status",
+      "field_survey_scs_booth",
+      "field_survey_scs_presentation",
+      "field_survey_scs_poster",
+      "field_survey_scs_kol",
+      "field_survey_kol_mode",
+      "field_survey_kol_topic",
+      "field_survey_kol_resource",
+      "field_survey_kol_support",
+      "field_survey_kol_mode_again",
+      "field_survey_kol_type",
+    );
+    $arrayed = array(
+      //PM
+      array(
+        "name" => "field_survey_pm_activities",
+        "parent" => array(
+          "field_survey_category" => "Project Management",
+        ),
+      ),
+      array(
+        "name" => "field_survey_pm_name",
+        "parent" => array(
+          "field_survey_category" => "Project Management",
+          "field_survey_pm_activities" => "New Slide Deck Development",
+        ),
+      ),
+      array(
+        "name" => "field_survey_pm_marketing_tool",
+        "parent" => array(
+          "field_survey_category" => "Project Management",
+          "field_survey_pm_activities" => "Marketing/Commercial Tool Development",
+        ),
+      ),
+      array(
+        "name" => "field_survey_pm_describe",
+        "parent" => array(
+          "field_survey_category" => "Project Management",
+          "field_survey_pm_activities" => "Other Project",
+        ),
+      ),
+      array(
+        "name" => "field_survey_pm_clinical_tool",
+        "parent" => array(
+          "field_survey_category" => "Project Management",
+          "field_survey_pm_activities" => "Clinical Tool/Resource Development",
+        ),
+      ),
+      array(
+        "name" => "field_survey_pm_status",
+        "parent" => array(
+          "field_survey_category" => "Project Management",
+        ),
+      ),
+      //SCS
+      array(
+        "name" => "field_survey_scs_name",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+        ),
+      ),
+      array(
+        "name" => "field_survey_scs_days",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+        ),
+      ),
+      array(
+        "name" => "field_survey_scs_booth",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+        ),
+      ),
+      array(
+        "name" => "field_survey_scs_presentation",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+        ),
+      ),
+      array(
+        "name" => "field_survey_scs_presname",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+          "field_survey_scs_presentation" => "Yes",
+        ),
+      ),
+      array(
+        "name" => "field_survey_scs_attendees",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+          "field_survey_scs_presentation" => "Yes",
+        ),
+      ),
+      array(
+        "name" => "field_survey_scs_poster",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+        ),
+      ),
+      array(
+        "name" => "field_survey_scs_prestitle",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+          "field_survey_scs_poster" => "Yes",
+        ),
+      ),
+      array(
+        "name" => "field_survey_scs_kol",
+        "parent" => array(
+          "field_survey_category" => "Scientific Congress Support",
+        ),
+      ),
+      
+      //KOL/HCP
+      array(
+        "name" => "field_survey_kol_activities",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_hcp_name",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Scientific Discussion",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_mode",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Scientific Discussion",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_topic",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Scientific Discussion",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_resource",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Scientific Discussion",
+        ),
+      ),
+      
+      array(
+        "name" => "field_survey_kol_support",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Research Collaboration",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_hcp_name_again",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Research Collaboration",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_mode_again",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Research Collaboration",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_type",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Research Collaboration",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_topics",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Research Collaboration",
+        ),
+      ),
+      
+      array(
+        "name" => "field_survey_kol_practice_name",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Educational Programs",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_presentation",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Educational Programs",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_mode_agains",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Educational Programs",
+        ),
+      ),
+      array(
+        "name" => "field_survey_kol_attendees",
+        "parent" => array(
+          "field_survey_category" => "KOL/HCP Support and Education",
+          "field_survey_kol_activities" => "Educational Programs",
+        ),
+      ),
+    );
+    foreach($unsets as &$name){
+      unset($form[$name]['und']['#options']['_none']);
+    };
+    foreach($arrayed as &$fixed){
+      $name = $fixed["name"];
+      $form[$name]['#states'] = array(
+        'visible' => array(),
+      );     
+      foreach($fixed["parent"] as $key => $value){
+        $form[$name]['#states']['visible'][":input[name='{$key}[und]']"] = array('value' => $value);
+      };
+    };
+  }
+  // $form_id == 'test_form_node_form' or 
+  // if ($form_id == 'webform_client_form_27' or $form_id == 'webform_client_form_26') { 
+    // $form['#fieldgroups']['group_pm']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'Project Management'),
+      // ),      
+    // );
+    
+    // //PM
+    // $form['field_survey_pm_activities']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'Project Management'),
+      // ),
+    // );
+    // $form['field_survey_pm_name']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'Project Management'),
+        // ':input[name="field_survey_pm_activities[und]"]' => array('value' => 'New Slide Deck Development'),
+      // ),
+    // );
+    // $form['field_survey_pm_marketing_tool']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'Project Management'),
+        // ':input[name="field_survey_pm_activities[und]"]' => array('value' => 'Marketing/Commercial Tool Development'),
+      // ),
+    // );
+    // $form['field_survey_pm_describe']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'Project Management'),
+        // ':input[name="field_survey_pm_activities[und]"]' => array('value' => 'Other Project'),
+      // ),
+    // );
+    // $form['field_survey_pm_clinical_tool']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'Project Management'),
+        // ':input[name="field_survey_pm_activities[und]"]' => array('value' => 'Clinical Tool/Resource Development'),
+      // ),
+    // );
+    // unset($form['field_survey_pm_status']['und']['#options']['_none']);
+    // $form['field_survey_pm_status']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'Project Management'),
+        // ':input[name="field_survey_pm_activities[und]"]' => array(array('value' => 'New Slide Deck Development'),array('value' => 'Marketing/Commercial Tool Development'),array('value' => 'Other Project'),array('value' => 'Clinical Tool/Resource Development')),
+      // ),
+    // );
+    
+    // // SCS
+    // $form['field_survey_scs_name']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'Scientific Congress Support'),
+      // ),
+    // );
+    // $form['field_survey_scs_days']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'Scientific Congress Support'),
+      // ),
+    // );
+    // unset($form['field_survey_scs_booth']['und']['#options']['_none']);
+    // $form['field_survey_scs_booth']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'Scientific Congress Support'),
+      // ),
+    // );
+    // unset($form['field_survey_scs_presentation']['und']['#options']['_none']);
+    // $form['field_survey_scs_presentation']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'Scientific Congress Support'),
+      // ),
+    // );
+    
+    // $form['field_survey_scs_presname']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'Scientific Congress Support'),
+        // ':input[name="field_survey_scs_presentation[und]"]' => array('value' => 'Yes'),
+      // ),
+    // );
+    // $form['field_survey_scs_attendees']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'Scientific Congress Support'),
+        // ':input[name="field_survey_scs_presentation[und]"]' => array('value' => 'Yes'),
+      // ),
+    // );
+
+    // unset($form['field_survey_scs_poster']['und']['#options']['_none']);
+    // $form['field_survey_scs_poster']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'Scientific Congress Support'),
+      // ),
+    // );
+    // $form['field_survey_scs_prestitle']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'Scientific Congress Support'),
+        // ':input[name="field_survey_scs_poster[und]"]' => array('value' => 'Yes'),
+      // ),
+    // );
+    
+    // unset($form['field_survey_scs_kol']['und']['#options']['_none']);
+    // $form['field_survey_scs_kol']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'Scientific Congress Support'),
+      // ),
+    // );
+    
+    // // KOL/HCP
+    
+    // $form['field_survey_kol_activities']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'KOL/HCP Support and Education'),
+      // ),
+    // );
+    
+    // $form['field_survey_kol_hcp_name']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'KOL/HCP Support and Education'),
+        // ':input[name="field_survey_kol_activities[und]"]' => array('value' => 'Scientific Discussion'),
+      // ),
+    // );
+    
+    // unset($form['field_survey_kol_mode']['und']['#options']['_none']);
+    // $form['field_survey_kol_mode']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'KOL/HCP Support and Education'),
+        // ':input[name="field_survey_kol_activities[und]"]' => array('value' => 'Scientific Discussion'),
+      // ),
+    // );
+    
+    // unset($form['field_survey_kol_topic']['und']['#options']['_none']);
+    // $form['field_survey_kol_topic']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'KOL/HCP Support and Education'),
+        // ':input[name="field_survey_kol_activities[und]"]' => array('value' => 'Scientific Discussion'),
+      // ),
+    // );
+    
+    // unset($form['field_survey_kol_resource']['und']['#options']['_none']);
+    // $form['field_survey_kol_resource']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="field_survey_category[und]"]' => array('value' => 'KOL/HCP Support and Education'),
+        // ':input[name="field_survey_kol_activities[und]"]' => array('value' => 'Scientific Discussion'),
+      // ),
+    // );
+    
+    // /**
+    // $form['submitted']['project_management']['pm_activities']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="submitted[category]"]' => array('value' => 'Project Management'),
+      // ),
+    // );
+    // $form['submitted']['project_management']['name_of_presentation']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="submitted[category]"]' => array('value' => 'Project Management'),
+        // ':input[name="submitted[project_management][pm_activities]"]' => array('value' => 'New Slide Deck Development'),
+      // ),
+    // );
+    // $form['submitted']['project_management']['name_of_tool_resource_commercial']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="submitted[category]"]' => array('value' => 'Project Management'),
+        // ':input[name="submitted[project_management][pm_activities]"]' => array('value' => 'Marketing / Commercial Tool Development'),
+      // ),
+    // );
+    // $form['submitted']['project_management']['describe_project']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="submitted[category]"]' => array('value' => 'Project Management'),
+        // ':input[name="submitted[project_management][pm_activities]"]' => array('value' => 'Other Project'),
+      // ),
+    // );
+    // $form['submitted']['project_management']['name_of_tool_resource_clinical']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="submitted[category]"]' => array('value' => 'Project Management'),
+        // ':input[name="submitted[project_management][pm_activities]"]' => array('value' => 'Clinical Tool / Resource Devmnt'),
+      // ),
+    // );
+    // $form['submitted']['project_management']['status']['#states'] = array(
+      // 'visible' => array(
+        // ':input[name="submitted[category]"]' => array('value' => 'Project Management'),
+        // ':input[name="submitted[project_management][pm_activities]"]' => array(array('value' => 'New Slide Deck Development'),array('value' => 'Marketing / Commercial Tool Development'),array('value' => 'Other Project'),array('value' => 'Clinical Tool / Resource Devmnt')),
+      // ),
+    // );  
+    // **/
+    // dsm($form);
+  // };
+}
