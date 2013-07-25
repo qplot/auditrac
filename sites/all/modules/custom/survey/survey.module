@@ -10,6 +10,7 @@ function survey_form_alter(&$form, &$form_state, $form_id) {
   
   if ($form_id == 'big_test_node_form') {
     $arrayed = array(
+      // Hello!
       array( 
         "name" => "field_field_text_test_one",
         "parent" => array(
